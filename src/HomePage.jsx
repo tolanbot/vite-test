@@ -24,11 +24,12 @@ export default function HomePage() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <LikeButton />
         <Profile
           src="https://i.imgur.com/MK3eW3Am.jpg"
           alt="Katherine Johnson"
         />
+        <br></br>
+        <LikeButton />
         <br></br>
         <Link to="/new-page">Go To New Page</Link>
         <p>
