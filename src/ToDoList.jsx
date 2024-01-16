@@ -86,6 +86,7 @@ function AddItemForm({ onAddItem }) {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        name="submitItem"
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
