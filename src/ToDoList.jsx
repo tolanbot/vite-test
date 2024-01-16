@@ -48,16 +48,6 @@ export default function ToDoList() {
   );
 }
 
-// function Item({ name, isDone }) {
-//   return isDone ? (
-//     <>
-//       <li>{name} ✅</li>
-//     </>
-//   ) : (
-//     <li>{name}</li>
-//   );
-// }
-
 function Item({ name, isDone }) {
   return (
     <li
@@ -77,3 +67,13 @@ Item.propTypes = {
   isDone: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
 };
+
+// function Item({ name, isDone }) {
+//   return isDone ? (
+//     <>
+//       <li>{name} ✅</li>
+//     </>
+//   ) : (
+//     <li>{name}</li>
+//   );
+// }
