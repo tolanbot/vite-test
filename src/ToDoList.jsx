@@ -18,27 +18,26 @@ export default function ToDoList() {
         className="photo"
       />
       <ul>
-        <a className="test" onClick={handleItemClick}>
-          <Item
-            className="item1"
-            name="Invent New Traffic Lights!"
-            isDone={isDone}
-          />
-        </a>
-        <a className="test" onClick={handleItemClick}>
-          <Item
-            className="item2"
-            name="Rehearse a movie scene"
-            isDone={isDone}
-          />
-        </a>
-        <a className="test" onClick={handleItemClick}>
-          <Item
-            className="item3"
-            name="Improve the spectrum technology"
-            isDone={isDone}
-          />
-        </a>
+        <Item
+          className="item1"
+          name="Invent New Traffic Lights"
+          isDone={isDone}
+          clickFunc={handleItemClick}
+        />
+
+        <Item
+          className="item2"
+          name="Rehearse a movie scene"
+          isDone={isDone}
+          clickFunc={handleItemClick}
+        />
+
+        <Item
+          className="item3"
+          name="Improve the spectrum technology"
+          isDone={isDone}
+          clickFunc={handleItemClick}
+        />
       </ul>
       <br></br>
       <LikeButton />
@@ -48,24 +47,29 @@ export default function ToDoList() {
   );
 }
 
-function Item({ name, isDone }) {
+function Item({ name, isDone, clickFunc }) {
   return (
-    <li
-      style={{
-        listStyleType: "disc",
-        textAlign: "center",
-        position: "relative",
-      }}
-    >
-      <span style={{ display: "inline-block" }}>{name}</span>
-      {isDone && <span style={{ position: "absolute", right: "10%" }}>✅</span>}
-    </li>
+    <a className="test" onClick={clickFunc}>
+      <li
+        style={{
+          listStyleType: "disc",
+          textAlign: "center",
+          position: "relative",
+        }}
+      >
+        <span style={{ display: "inline-block" }}>{name}</span>
+        {isDone && (
+          <span style={{ position: "absolute", right: "10%" }}>✅</span>
+        )}
+      </li>
+    </a>
   );
 }
 
 Item.propTypes = {
   isDone: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
+  clickFunc: PropTypes.func.isRequired,
 };
 
 // function Item({ name, isDone }) {
