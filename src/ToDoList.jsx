@@ -16,6 +16,11 @@ export default function ToDoList() {
     setItems([...items, { name: itemName, isDone: false }]);
   };
 
+  const removeItem = (index) => {
+    const newItems = items.filter((_, itemIndex) => index !== itemIndex);
+    setItems(newItems);
+  };
+
   useEffect(() => {
     if (items.length > 0 && items.every((item) => item.isDone)) {
       console.log("All Items Completed");
@@ -32,14 +37,19 @@ export default function ToDoList() {
       />
       <AddItemForm onAddItem={addItem} />
       <ul>
-        {items.map((item, index) => (
-          <Item
-            key={index}
-            name={item.name}
-            isDone={item.isDone}
-            clickFunc={() => handleItemClick(index)}
-          />
-        ))}
+        {items.map((item, index) => {
+          return (
+            <>
+              <Item
+                key={index}
+                name={item.name}
+                isDone={item.isDone}
+                clickFunc={() => handleItemClick(index)}
+                removeFunc={() => removeItem(index)}
+              />
+            </>
+          );
+        })}
       </ul>
       <br></br>
       <LikeButton />
@@ -49,10 +59,15 @@ export default function ToDoList() {
   );
 }
 
-function Item({ name, isDone, clickFunc }) {
+function Item({ name, isDone, clickFunc, removeFunc }) {
+  const handleRemoveClick = (e) => {
+    e.stopPropagation();
+    removeFunc();
+  };
   return (
     <a className="test" onClick={clickFunc}>
       <li
+        className="item"
         style={{
           listStyleType: "disc",
           textAlign: "center",
@@ -61,8 +76,16 @@ function Item({ name, isDone, clickFunc }) {
       >
         <span style={{ display: "inline-block" }}>{name}</span>
         {isDone && (
-          <span style={{ position: "absolute", right: "10%" }}>✅</span>
+          <span
+            className="checkmark"
+            style={{ position: "absolute", right: "10%" }}
+          >
+            ✅
+          </span>
         )}
+        <button className="item-button" onClick={handleRemoveClick}>
+          Remove
+        </button>
       </li>
     </a>
   );
@@ -72,6 +95,7 @@ Item.propTypes = {
   isDone: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   clickFunc: PropTypes.func.isRequired,
+  removeFunc: PropTypes.func.isRequired,
 };
 
 function AddItemForm({ onAddItem }) {
@@ -99,71 +123,3 @@ function AddItemForm({ onAddItem }) {
 AddItemForm.propTypes = {
   onAddItem: PropTypes.func.isRequired,
 };
-
-// function Item2({ name }) {
-//   const [isItDone, setDone] = useState(false);
-
-//   const handleClick = () => {
-//     setDone(!isItDone);
-//   };
-
-//   return (
-//     <a className="test" onClick={handleClick}>
-//       <li
-//         style={{
-//           listStyleType: "disc",
-//           textAlign: "center",
-//           position: "relative",
-//         }}
-//       >
-//         <span style={{ display: "inline-block" }}>{name}</span>
-//         {isItDone && (
-//           <span style={{ position: "absolute", right: "10%" }}>✅</span>
-//         )}
-//       </li>
-//     </a>
-//   );
-// }
-
-// Item2.propTypes = {
-//   name: PropTypes.string.isRequired,
-// };
-
-// function addItemForm() {
-//   let itemNum = 1;
-//   const taskArray = [];
-//   return <input type="text"></input>;
-// }
-
-// function Item({ name, isDone }) {
-//   return isDone ? (
-//     <>
-//       <li>{name} ✅</li>
-//     </>
-//   ) : (
-//     <li>{name}</li>
-//   );
-// }
-
-{
-  /* <Item
-className="item1"
-name="Invent New Traffic Lights"
-isDone={isDone1}
-clickFunc={handleItemClick}
-/>
-
-<Item
-className="item2"
-name="Rehearse a movie scene"
-isDone={isDone2}
-clickFunc={handleItemClick2}
-/>
-
-<Item
-className="item3"
-name="Improve the spectrum technology"
-isDone={isDone3}
-clickFunc={handleItemClick3}
-/> */
-}

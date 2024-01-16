@@ -75,3 +75,20 @@ button:focus-visible {
 img .profile {
   border-radius: 5px;
 }
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Spreads the content and button apart */
+  /* list-style-type: none; Removes the bullet point */
+  cursor: pointer;
+}
+
+.checkmark {
+  margin-right: auto; /* Ensures the checkmark is pushed to the left of the button */
+}
+
+.item-button {
+  padding: 0.3em 0.6em; /* Adjust padding as needed */
+  margin-left: 10px; /* Space between item text and button */
+}
