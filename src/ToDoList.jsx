@@ -4,10 +4,20 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 export default function ToDoList() {
-  const [isDone, setIsDone] = useState(false);
+  const [isDone1, setIsDone1] = useState(false);
+  const [isDone2, setIsDone2] = useState(false);
+  const [isDone3, setIsDone3] = useState(false);
 
   const handleItemClick = () => {
-    setIsDone(!isDone);
+    setIsDone1(!isDone1);
+  };
+
+  const handleItemClick2 = () => {
+    setIsDone2(!isDone2);
+  };
+
+  const handleItemClick3 = () => {
+    setIsDone3(!isDone3);
   };
   return (
     <>
@@ -21,23 +31,25 @@ export default function ToDoList() {
         <Item
           className="item1"
           name="Invent New Traffic Lights"
-          isDone={isDone}
+          isDone={isDone1}
           clickFunc={handleItemClick}
         />
 
         <Item
           className="item2"
           name="Rehearse a movie scene"
-          isDone={isDone}
-          clickFunc={handleItemClick}
+          isDone={isDone2}
+          clickFunc={handleItemClick2}
         />
 
         <Item
           className="item3"
           name="Improve the spectrum technology"
-          isDone={isDone}
-          clickFunc={handleItemClick}
+          isDone={isDone3}
+          clickFunc={handleItemClick3}
         />
+
+        <Item2 name="Test The List" />
       </ul>
       <br></br>
       <LikeButton />
@@ -70,6 +82,37 @@ Item.propTypes = {
   isDone: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   clickFunc: PropTypes.func.isRequired,
+};
+
+function Item2({ name }) {
+  const [isItDone, setDone] = useState(false);
+
+  const handleClick = () => {
+    setDone(!isItDone);
+  };
+
+  return (
+    <a className="test" onClick={handleClick}>
+      <li
+        style={{
+          listStyleType: "disc",
+          textAlign: "center",
+          position: "relative",
+        }}
+      >
+        <span style={{ display: "inline-block" }}>{name}</span>
+        {isItDone && (
+          <span style={{ position: "absolute", right: "10%" }}>✅</span>
+        )}
+      </li>
+    </a>
+  );
+}
+
+Item2.propTypes = {
+  //   isDone: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  //   clickFunc: PropTypes.func.isRequired,
 };
 
 // function Item({ name, isDone }) {
