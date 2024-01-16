@@ -29,7 +29,7 @@ export default function ToDoList() {
 
   return (
     <>
-      <h1>Hedy Lamarr&apos;s Todos</h1>
+      <h1>Hedy Lamarr&apos;s To-Do&apos;s</h1>
       <img
         src="https://i.imgur.com/yXOvdOSs.jpg"
         alt="Hedy Lamarr"
@@ -39,15 +39,13 @@ export default function ToDoList() {
       <ul>
         {items.map((item, index) => {
           return (
-            <>
-              <Item
-                key={index}
-                name={item.name}
-                isDone={item.isDone}
-                clickFunc={() => handleItemClick(index)}
-                removeFunc={() => removeItem(index)}
-              />
-            </>
+            <Item
+              key={index}
+              name={item.name}
+              isDone={item.isDone}
+              clickFunc={() => handleItemClick(index)}
+              removeFunc={() => removeItem(index)}
+            />
           );
         })}
       </ul>
