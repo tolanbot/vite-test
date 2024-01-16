@@ -32,6 +32,8 @@ export default function HomePage() {
         <LikeButton />
         <br></br>
         <Link to="/new-page">Go To New Page</Link>
+        <br></br>
+        <Link to="/to-do">Go To To Do List</Link>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

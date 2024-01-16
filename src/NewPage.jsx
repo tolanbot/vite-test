@@ -8,6 +8,7 @@ export default function NewPage() {
       <Profile src="https://i.imgur.com/MK3eW3Am.jpg" alt="Katherine Johnson" />
       <br></br>
       <LikeButton />
+      <br></br>
       <Link to="/">Go Back To Home Page</Link>
     </>
   );
