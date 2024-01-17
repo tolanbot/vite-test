@@ -19,11 +19,7 @@ a {
   text-decoration: inherit;
 }
 
-.test {
-  color: white;
-  cursor: pointer;
-}
-a:hover {
+li:hover {
   color: #535bf2;
 }
 
@@ -43,13 +39,14 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.2em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  /* height: 3em */
 }
 button:hover {
   border-color: #646cff;
@@ -77,18 +74,57 @@ img .profile {
 }
 
 .item {
+  color: white;
   display: flex;
   align-items: center;
-  justify-content: center; /* Spreads the content and button apart */
+  justify-content: space-between; /* Spreads the content and button apart */
   /* list-style-type: none; Removes the bullet point */
   cursor: pointer;
+  list-style-type: disc;
+  position: relative;
+}
+
+.item span {
+  text-align: center;
+  flex-grow: 1;
 }
 
 .checkmark {
-  margin-right: auto; /* Ensures the checkmark is pushed to the left of the button */
+  position: absolute;
+  /* right: "10%"; */
 }
 
 .item-button {
   padding: 0.3em 0.6em; /* Adjust padding as needed */
   margin-left: 10px; /* Space between item text and button */
+}
+
+.all-done {
+  color: green; /* or any color you prefer */
+  font-size: 1.2em;
+  height: 40px;
+  visibility: visible;
+  border: green solid 5px;
+  border-radius: 15px;
+  padding: 5px;
+  /* padding-top: 10px; */
+  /* margin-bottom: 30px; */
+}
+
+.all-done-container {
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 40px; /* Adjust this height to match the size of your message */
+  /* margin-top: 10px; */
+  text-align: center;
+  visibility: hidden;
+  /* margin-top: 10px; */
+}
+
+.like-button {
+  /* Assuming this is the class for your Like button */
+  padding-top: 20px;
+  margin-top: 20px; /* Adjust this value to create space above the Like button */
 }
