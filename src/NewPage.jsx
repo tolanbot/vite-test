@@ -9,7 +9,7 @@ export default function NewPage() {
       <br></br>
       <LikeButton />
       <br></br>
-      <Link to="/">Go Back To Home Page</Link>
+      <Link to="/vite-test">Go Back To Home Page</Link>
     </>
   );
 }

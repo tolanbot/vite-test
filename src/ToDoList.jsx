@@ -56,7 +56,7 @@ export default function ToDoList() {
       <div className="like-button">
         <LikeButton />
         <br></br>
-        <Link to="/">Go Back To Home Page</Link>
+        <Link to="/vite-test">Go Back To Home Page</Link>
       </div>
     </>
   );
